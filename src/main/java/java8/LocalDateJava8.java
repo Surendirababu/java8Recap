@@ -1,7 +1,11 @@
 package java8;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.chrono.ChronoLocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalField;
 
 /**
@@ -9,10 +13,11 @@ import java.time.temporal.TemporalField;
  */
 public class LocalDateJava8 {
 
-    public static void main(String a[])
-    {
+    public static void main(String a[]) throws ParseException {
 
         LocalDate now = LocalDate.now();
+
+        System.out.println("Now : "+now);
 
         System.out.println("Day of Month : "+now.getDayOfMonth());
         System.out.println("Month : "+now.getMonth());
@@ -44,6 +49,14 @@ public class LocalDateJava8 {
 
         System.out.println("Is before : "+now.isBefore(tenDaysAfterCurrentDate));
         System.out.println("Is after : "+now.isAfter(tenDaysAfterCurrentDate));
+
+        LocalDate marriageDate = LocalDate.of(2017, Month.OCTOBER,30);
+        System.out.println("My Marriage Date : "+ marriageDate);
+
+        DateTimeFormatter dateTimeFormatter =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println("My Marriage Date in dd/MM/yyyy format : " + dateTimeFormatter.format(marriageDate));
+
+
         /*
 
         OUTPUT:
